@@ -1,0 +1,15 @@
+<h1>
+  เข้าสู่ระบบ
+</h1>
+
+
+<form #login="ngForm" (ngSubmit)="onClickSubmit(login.value)">
+  <mat-form-field>
+    <input matInput placeholder="Username" name="username" [(ngModel)]="login.username">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Password" name="password" [(ngModel)]="login.password">
+  </mat-form-field><br>
+
+  <button type="submit" mat-stroked-button color="primary">Login</button>
+</form>

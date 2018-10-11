@@ -1,0 +1,25 @@
+a:visited , a:link {
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+.title {
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
