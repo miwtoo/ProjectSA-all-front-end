@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { SidenavService } from '../service/sidenav/sidenav.service';
+import { UserService } from '../service/user/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  title = 'ระบบร้านขายยา';
+  @Input() title = ""
+  name = this.userService.getUserName()
+  
 
-  constructor() { }
+  logout(){
+    this.router.navigate(['login']);
+    localStorage.removeItem("user");
+  }
+  constructor(private router: Router, private userService : UserService, private sidenav :SidenavService) { }
 
   ngOnInit() {
   }

@@ -1,15 +1,38 @@
-<h1>
-  เข้าสู่ระบบ
-</h1>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a class="title" mat-button routerLink="">{{title}}</a>
+    <span class="example-spacer"></span>
+    <ul>
+      <li>
+        <a mat-button routerLink="login">เข้าสู่ระบบ</a>
+      </li>
+
+      <li>
+        <a mat-button>สมัครสมาชิก</a>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="flex-container">
+  <mat-card class="card flex-container">
+    <mat-toolbar color="theme">
+      <mat-toolbar-row>
+        <span>Login</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
 
-<form #login="ngForm" (ngSubmit)="onClickSubmit(login.value)">
-  <mat-form-field>
-    <input matInput placeholder="Username" name="username" [(ngModel)]="login.username">
-  </mat-form-field><br>
-  <mat-form-field>
-    <input matInput placeholder="Password" name="password" [(ngModel)]="login.password">
-  </mat-form-field><br>
+    <mat-card-content>
+      <form #login="ngForm" (ngSubmit)="onClickSubmit(login.value)" class="flex-item">
+        <mat-form-field>
+          <input matInput placeholder="Username" name="username" [(ngModel)]="login.username">
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput placeholder="Password" name="password" type="password" [(ngModel)]="login.password">
+        </mat-form-field><br>
 
-  <button type="submit" mat-stroked-button color="primary">Login</button>
-</form>
+        <button type="submit" mat-stroked-button color="primary">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

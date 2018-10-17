@@ -39,21 +39,40 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
-import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './login/login.component';
+import { TestUiComponent } from './test-ui/test-ui.component';
+import { AllComponent } from './all/all.component';
+import { UserService } from './service/user/user.service';
+import { AddItemComponent } from './warehouse/add-item/add-item.component';
+import { TakeItemComponent } from './warehouse/take-item/take-item.component';
+import { ItemListComponent } from './warehouse/item-list/item-list.component';
+import { HistoryComponent } from './warehouse/history/history.component';
 
 const appRoutes: Routes = [
-  {path: "" , component: WelcomeComponent},
-  {path: "login" , component: LoginComponent}
+  {path: "" , component: LoginComponent},
+  {path: "login" , component: LoginComponent},
+  { path: 'all', component: AllComponent, children: [
+    {path: "test" , component: TestUiComponent},
+
+    { path: "add-item" , component: AddItemComponent },
+    { path: "item-list" , component: ItemListComponent },
+    { path: "take-item" , component: TakeItemComponent },
+    { path: "history" , component: HistoryComponent }
+  ]}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     NavComponent,
-    WelcomeComponent
+    LoginComponent,
+    TestUiComponent,
+    AllComponent,
+    AddItemComponent,
+    ItemListComponent,
+    TakeItemComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

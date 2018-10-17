@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side">
+    <p>เมนู</p>
+    <button mat-button [matMenuTriggerFor]="menu">คลังสินค้า</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="./add-item" >เพิ่มสินค้า</button>
+      <button mat-menu-item routerLink="./item-list">ดูรายชื่อสินค้า</button>
+    </mat-menu>
+    
+    <button mat-menu-item>ระบบที่ 2</button>
+    <button mat-menu-item>ระบบที่ 3</button>
+    <button mat-menu-item>ระบบที่ 4</button>
+    <button mat-menu-item>ระบบที่ 5</button>
+    <button mat-menu-item>ระบบที่ 6</button>
+    <button mat-menu-item routerLink="./test">หน้าทดสอบ</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

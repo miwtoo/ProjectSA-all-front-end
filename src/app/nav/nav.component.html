@@ -1,6 +1,16 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <a  class="title" mat-button routerLink="">{{title}}</a>
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon class="example-icon">menu</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <h1>{{title}}</h1>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">{{name}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">ออกจากระบบ</button>
+    </mat-menu>
+    <!-- <a  class="title" mat-button routerLink="">{{title}}</a>
     <span class="example-spacer"></span>
     <ul>
       <li>
@@ -10,6 +20,6 @@
       <li>
         <a mat-button>สมัครสมาชิก</a>
       </li>
-    </ul>
+    </ul> -->
   </mat-toolbar-row>
 </mat-toolbar>

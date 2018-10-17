@@ -1,0 +1,28 @@
+<app-nav title="เพิ่มสินค้า"></app-nav>
+
+<h1>
+  เพิ่มสินค้า
+</h1>
+<div class="row center-lg center-md start-sm start-xs">
+  <div class="col-lg col-md col-sm col-xs">
+      <form #item = "ngForm"  (ngSubmit) = "onClickSubmit(item.value)">
+          <mat-form-field>
+            ชื่อสินค้า : <input matInput  name ="item_name" [(ngModel)]="item.item_name">
+          </mat-form-field><br>
+
+          <mat-form-field>
+           Type: <mat-select name ="categorys" [(ngModel)]="item.categorys">
+              <mat-option *ngFor="let category of categorys" [value]="category.value">
+                {{category.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+          <mat-form-field>
+            ราคา : <input matInput name ="price" [(ngModel)]="item.price">
+          </mat-form-field><br>
+
+          <button type="submit" mat-stroked-button color="primary">เพิ่ม</button>
+      </form>
+  </div>
+</div>
