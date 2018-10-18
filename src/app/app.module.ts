@@ -44,10 +44,16 @@ import { LoginComponent } from './login/login.component';
 import { TestUiComponent } from './test-ui/test-ui.component';
 import { AllComponent } from './all/all.component';
 import { UserService } from './service/user/user.service';
+//Miw
 import { AddItemComponent } from './warehouse/add-item/add-item.component';
 import { TakeItemComponent } from './warehouse/take-item/take-item.component';
 import { ItemListComponent } from './warehouse/item-list/item-list.component';
 import { HistoryComponent } from './warehouse/history/history.component';
+//Ouu
+import { HRComponent } from './personnel/hr/hr.component';
+import { DepartmentComponent } from './personnel/department/department.component';
+import { ManageComponent } from './personnel/manage/manage.component';
+import { RecordComponent } from './personnel/record/record.component';
 
 const appRoutes: Routes = [
   {path: "" , component: LoginComponent},
@@ -58,7 +64,12 @@ const appRoutes: Routes = [
     { path: "add-item" , component: AddItemComponent },
     { path: "item-list" , component: ItemListComponent },
     { path: "take-item" , component: TakeItemComponent },
-    { path: "history" , component: HistoryComponent }
+    { path: "history" , component: HistoryComponent },
+
+    {path: 'hr', component : HRComponent},
+    {path: 'manage', component : ManageComponent},
+    {path: 'record', component : RecordComponent},
+    {path: 'department', component : DepartmentComponent}
   ]}
 ];
 
@@ -72,7 +83,11 @@ const appRoutes: Routes = [
     AddItemComponent,
     ItemListComponent,
     TakeItemComponent,
-    HistoryComponent
+    HistoryComponent,
+    HRComponent,
+    DepartmentComponent,
+    ManageComponent,
+    RecordComponent
   ],
   imports: [
     BrowserModule,

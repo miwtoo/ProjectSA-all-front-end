@@ -1,13 +1,22 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side">
+  <mat-sidenav #sidenav mode="over">
     <p>เมนู</p>
-    <button mat-button [matMenuTriggerFor]="menu">คลังสินค้า</button>
-    <mat-menu #menu="matMenu">
+    <button mat-button [matMenuTriggerFor]="warehouse">คลังสินค้า</button>
+    <mat-menu #warehouse="matMenu">
       <button mat-menu-item routerLink="./add-item" >เพิ่มสินค้า</button>
       <button mat-menu-item routerLink="./item-list">ดูรายชื่อสินค้า</button>
+      <button mat-menu-item routerLink="./take-item">เบิก-ถอน</button>
+      <button mat-menu-item routerLink="./history">ประวัติ การเบิก-ถอน</button>
     </mat-menu>
-    
-    <button mat-menu-item>ระบบที่ 2</button>
+    <br>
+    <button mat-button [matMenuTriggerFor]="personnel">จัดการพนักงาน</button>
+    <mat-menu #personnel="matMenu">
+      <button mat-menu-item routerLink="./hr" >พนักงาน</button>
+      <button mat-menu-item routerLink="./manage">การจัดการ</button>
+      <button mat-menu-item routerLink="./record">บันทึก</button>
+      <button mat-menu-item routerLink="./department">แผนก</button>
+    </mat-menu>
+
     <button mat-menu-item>ระบบที่ 3</button>
     <button mat-menu-item>ระบบที่ 4</button>
     <button mat-menu-item>ระบบที่ 5</button>
