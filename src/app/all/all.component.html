@@ -3,7 +3,6 @@
     <p>เมนู</p>
     <button mat-button [matMenuTriggerFor]="warehouse">คลังสินค้า</button>
     <mat-menu #warehouse="matMenu">
-      <button mat-menu-item routerLink="./add-item" >เพิ่มสินค้า</button>
       <button mat-menu-item routerLink="./item-list">ดูรายชื่อสินค้า</button>
       <button mat-menu-item routerLink="./take-item">เบิก-ถอน</button>
       <button mat-menu-item routerLink="./history">ประวัติ การเบิก-ถอน</button>

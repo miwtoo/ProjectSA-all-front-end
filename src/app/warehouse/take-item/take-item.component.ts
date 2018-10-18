@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { dateformat } from 'dateformat';
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-take-item',
@@ -18,10 +19,12 @@ export class TakeItemComponent implements OnInit {
     //let dateFormat = dateformat;
     //let now = new Date();
 
+    //console.log(this.userService.getUserId());
+    data.user = this.userService.getUserId()
+
     console.log(data);
 
     this.http.post("http://localhost:8080/history", data).subscribe(
-
       data => {
         console.log("POST Request is successful ", data);
         alert("สำเร็จ")
@@ -31,11 +34,9 @@ export class TakeItemComponent implements OnInit {
         alert("ผิดพลาด " + error)
       }
 
-    );
-
-    console.log(data)
+    ); 
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
   ngOnInit() {
     this.http.get("http://localhost:8080/unit").subscribe(
