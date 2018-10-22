@@ -3,8 +3,7 @@
     <p>เมนู</p>
     <button mat-button [matMenuTriggerFor]="warehouse">คลังสินค้า</button>
     <mat-menu #warehouse="matMenu">
-      <button mat-menu-item routerLink="./item-list">ดูรายชื่อสินค้า</button>
-      <button mat-menu-item routerLink="./take-item">เบิก-ถอน</button>
+      <button mat-menu-item routerLink="./take-item">เบิก-นำเข้า</button>
       <button mat-menu-item routerLink="./history">ประวัติ การเบิก-ถอน</button>
     </mat-menu>
     <br>
@@ -16,8 +15,15 @@
       <button mat-menu-item routerLink="./department">แผนก</button>
     </mat-menu>
 
-    <button mat-menu-item>ระบบที่ 3</button>
-    <button mat-menu-item>ระบบที่ 4</button>
+    <button mat-menu-item routerLink="./customer">สมาชิกลูกค้า</button>
+    
+    <button mat-button [matMenuTriggerFor]="inform">แจ้งเตือนทานยา</button>
+    <mat-menu #inform="matMenu">
+      <button mat-menu-item routerLink="./inform" >เพิ่มการแจ้งเตือน</button>
+      <button mat-menu-item routerLink="./table">ตารางแจ้งเตือน</button>
+    </mat-menu>
+
+    <button mat-menu-item routerLink="./medicine">จัดเก็บข้อมูลยา</button>
     <button mat-menu-item>ระบบที่ 5</button>
     <button mat-menu-item>ระบบที่ 6</button>
     <button mat-menu-item routerLink="./test">หน้าทดสอบ</button>

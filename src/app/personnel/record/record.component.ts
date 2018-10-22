@@ -1,5 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
+import {HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from "@angular/core";
 
 
 // @ts-ignore
@@ -16,16 +18,44 @@ import {MatTableDataSource} from '@angular/material';
 
 export class RecordComponent implements OnInit {
 
+  
+
+  private person_id: number;
+
   displayedColumns: string[] = ['intime', 'codenum', 'name', 'depart'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource();
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 
-  constructor() {
+  constructor( private httpClient: HttpClient){}
+
+  record(){
+    this. recordperson(this.person_id).subscribe(data => {
+      console.log( "Record Success" , data) ;
+      alert('บันทึกเรียบร้อย');
+
+    },error =>{
+      console.log("Fail Success", error);
+      alert('ไม่สามารถบันทึกได้ server ผิดพลาดหรือไม่มีข้อมูล');
+
+    })
 
   }
+  recordperson(person_id: number){
+    return this.httpClient.post('//localhost:8080/Records',{
+
+  
+      "person": person_id
+
+    });
+
+
+
+  }
+
+  
   ngOnInit() {
 
   }
@@ -40,15 +70,5 @@ export interface PeriodicElement {
 }
 
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {intime: '5/6/2018 07:45', codenum: 'b5900', name: 'Mo', depart: 'cpe'},
-  {intime: '5/6/2018 07:46', codenum: 'b5901', name: 'MAY', depart: 'cpe'},
-  {intime: '5/6/2018 07:47', codenum: 'b5902', name: 'MAI', depart: 'cpe'},
-  {intime: '5/6/2018 07:48', codenum: 'b5903', name: 'MING',depart : 'cpe'},
-  {intime: '5/6/2018 07:49', codenum: 'b5904', name: 'MoNG',depart : 'cpe'},
-  {intime: '6/6/2018 07:49', codenum: 'b5900', name: 'Mo', depart: 'cpe'},
-  {intime: '6/6/2018 07:48', codenum: 'b5901', name: 'MAY', depart: 'cpe'},
-  {intime: '6/6/2018 07:47', codenum: 'b5902', name: 'MAI', depart: 'cpe'},
-  {intime: '6/6/2018 07:46', codenum: 'b5903', name: 'MING',depart : 'cpe'},
-  {intime: '6/6/2018 07:45', codenum: 'b5904', name: 'MoNG', depart: 'cpe'},
-];
+
+

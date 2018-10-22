@@ -38,3 +38,20 @@
 </table>
 
 
+<section>
+  <br><br>
+
+  <div class="panel">
+    <form>
+  <mat-form-field >
+    รหัสพนักงาน<input matInput [(ngModel)]="person_id" type="number" [ngModelOptions]="{standalone: true}">
+  </mat-form-field><br>
+      <br>
+  <mat-form-field >
+    ผู้ยืนยัน<input matInput >
+  </mat-form-field><br><br>
+  <button mat-stroked-button color="primary" class="adds"   (click)= "record()">บันทึก</button><br><br>
+</form>
+  </div>
+
+</section>

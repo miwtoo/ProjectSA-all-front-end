@@ -2,37 +2,37 @@
 
 <mat-card class="card flex-container">
   <mat-toolbar color="theme">
-  <mat-toolbar-row>
-    <span>นำเข้า-เบิก สินค้า</span>
-  </mat-toolbar-row>
-</mat-toolbar>
-<mat-card-content>
-  <div class="center">
-    <form #withdraw="ngForm" (ngSubmit)="onClickSubmit(withdraw.value)">
+    <mat-toolbar-row>
+      <span>นำเข้า-เบิก สินค้า</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-card-content>
+    <div class="center">
+      <form #withdraw="ngForm" (ngSubmit)="onClickSubmit(withdraw.value)">
 
-      <mat-form-field>
-        ประเภท: <mat-select name="type" [(ngModel)]="withdraw.types">
-          <mat-option *ngFor="let type of types" [value]="type.value">
-            {{type.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field><br>
+        <mat-form-field>
+          ประเภท: <mat-select name="type" [(ngModel)]="withdraw.types">
+            <mat-option *ngFor="let type of types" [value]="type.value">
+              {{type.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
 
-      <mat-form-field>
-        รหัสสินค้า : <input matInput name="item" [(ngModel)]="withdraw.item_id">
-      </mat-form-field><br>
-      <mat-form-field>
-        จำนวน : <input matInput name="amount" [(ngModel)]="withdraw.amount">
-      </mat-form-field>
-      <mat-form-field>
-        หน่วย: <mat-select name="unit" [(ngModel)]="withdraw.units">
-          <mat-option *ngFor="let unit of units" [value]="unit.value">
-            {{unit.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field><br>
-      <button type="submit" mat-stroked-button color="primary">เบิก</button>
-    </form>
-  </div>
-</mat-card-content>
+        <mat-form-field>
+          รหัสสินค้า : <input matInput name="item" [(ngModel)]="withdraw.item_id">
+        </mat-form-field><br>
+        <mat-form-field>
+          จำนวน : <input matInput name="amount" [(ngModel)]="withdraw.amount">
+        </mat-form-field>
+        <mat-form-field>
+          หน่วย: <mat-select name="unit" [(ngModel)]="withdraw.units">
+            <mat-option *ngFor="let unit of units" [value]="unit.value">
+              {{unit.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <button type="submit" mat-stroked-button color="primary">ตกลง</button>
+      </form>
+    </div>
+  </mat-card-content>
 </mat-card>

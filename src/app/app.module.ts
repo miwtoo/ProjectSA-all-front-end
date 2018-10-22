@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCheckboxModule} from '@angular/material';
+import {MatCheckboxModule, MatNativeDateModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -55,6 +55,13 @@ import { DepartmentComponent } from './personnel/department/department.component
 import { ManageComponent } from './personnel/manage/manage.component';
 import { RecordComponent } from './personnel/record/record.component';
 
+import { CustomerComponent } from './customer/customer.component';
+import { RegisterService } from './service/register/register.service';
+
+import { InformComponent } from './inform/informs/inform.component';
+import { TableComponent } from './inform/table/table.component';
+import { DatarecComponent } from './medicine/datarec/datarec.component';
+
 const appRoutes: Routes = [
   {path: "" , component: LoginComponent},
   {path: "login" , component: LoginComponent},
@@ -69,7 +76,14 @@ const appRoutes: Routes = [
     {path: 'hr', component : HRComponent},
     {path: 'manage', component : ManageComponent},
     {path: 'record', component : RecordComponent},
-    {path: 'department', component : DepartmentComponent}
+    {path: 'department', component : DepartmentComponent},
+
+    {path: 'customer', component : CustomerComponent},
+
+    { path: 'inform', component: InformComponent },
+    { path: 'table', component: TableComponent },
+
+    { path: 'medicine', component: DatarecComponent }
   ]}
 ];
 
@@ -87,7 +101,11 @@ const appRoutes: Routes = [
     HRComponent,
     DepartmentComponent,
     ManageComponent,
-    RecordComponent
+    RecordComponent,
+    CustomerComponent,
+    InformComponent,
+    TableComponent,
+    DatarecComponent
   ],
   imports: [
     BrowserModule,
@@ -126,9 +144,10 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

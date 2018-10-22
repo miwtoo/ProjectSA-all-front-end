@@ -1,0 +1,40 @@
+<app-nav title="ระบบจัดเก็บข้อมูลยา"></app-nav>
+
+<body>
+  <div class="flex-container">
+    <form #datarec = "ngForm"  (ngSubmit) = "onClickSubmit(datarec.value)" >
+      <h2>กรอกข้อมูลยา</h2>
+        <mat-form-field>  
+          <h4>หมวดหมู่:</h4> 
+            <mat-select name ="type" [(ngModel)]="datarec.types">
+              <mat-option *ngFor="let type of types" [value]="type.value">
+                {{type.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <h4>ยี่ห้อ:</h4> 
+            <input matInput name ="brandName" [(ngModel)]="datarec.brandName_id">
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <h4>ตัวยาสำคัญ:</h4> 
+            <mat-select name ="medicine" [(ngModel)]="datarec.medicines">
+              <mat-option *ngFor="let medicine of medicines" [value]="medicine.value">
+                {{medicine.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <h4>สรรพคุณ:</h4> 
+            <input matInput name ="detail"  [(ngModel)]="datarec.detial_id">
+        </mat-form-field><br>
+    
+      <pre style="text-align:left;">
+        <button type="submit" mat-stroked-button color="primary">บันทึก</button>
+      </pre>
+    </form>
+  </div>
+</body>

@@ -1,6 +1,8 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
+@import 'flexboxgrid/css/flexboxgrid.min.css';
+
 body {
  margin: 0;
  font-family: Kanit, sans-serif;
