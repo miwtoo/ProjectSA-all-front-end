@@ -30,15 +30,17 @@ export class DatarecComponent implements OnInit {
 }constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:8080/Type").subscribe(
+    this.http.get("http://localhost:8080/TypePill").subscribe(
       data => {
-        console.log("GET Request is successful ", data);
+        //console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           this.types.push({
             value: data[index].id,
-            viewValue: data[index].name
+            viewValue: data[index].type
           })
         }
+        console.log(data);
+        
       },
       error => {
         console.log("Error", error);
@@ -50,8 +52,8 @@ export class DatarecComponent implements OnInit {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           this.medicines.push({
-            value: data[index].medicineId,
-            viewValue: data[index].medicineName
+            value: data[index].id,
+            viewValue: data[index].name
           })
         }
       },
