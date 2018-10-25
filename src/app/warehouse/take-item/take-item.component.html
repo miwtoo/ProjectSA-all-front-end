@@ -11,7 +11,7 @@
       <form #withdraw="ngForm" (ngSubmit)="onClickSubmit(withdraw.value)">
 
         <mat-form-field>
-          ประเภท: <mat-select name="type" [(ngModel)]="withdraw.types">
+          สถานะ : <mat-select name="type" [(ngModel)]="withdraw.types">
             <mat-option *ngFor="let type of types" [value]="type.value">
               {{type.viewValue}}
             </mat-option>

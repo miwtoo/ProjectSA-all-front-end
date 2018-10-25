@@ -34,9 +34,9 @@ export class HistoryComponent implements OnInit {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           ELEMENT_DATA.push({
-            type: data[index].type.name,
-            name: data[index].user.userName,
-            itemName: data[index].item.itemName,
+            type: data[index].status.name,
+            name: data[index].user.personnel.name,
+            itemName: data[index].item.name,
             amount: data[index].amount,
             unit: data[index].unit.name,
             time: dateformat( new Date(data[index].date), "h:MM:ss TT"),
