@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
+ 
 export interface PeriodicElement { }
+
 @Component({
   selector: 'app-inform',
   templateUrl: './inform.component.html',
   styleUrls: ['./inform.component.css']
 })
 export class InformComponent implements OnInit {
-  tel: '';
-  name_pill: '';
   title = 'ระบบร้านขายยา';
-constructor(private http: HttpClient) {}
+  message = [];
 
   onClickSubmit(data) {
 
-    if(data.date != null)
-      data.date = data.date.getTime()
+    data.date = data.date.getTime()
     console.log(data);
     this.http.post("http://localhost:8080/inform", data).subscribe(
 
@@ -26,12 +24,27 @@ constructor(private http: HttpClient) {}
       },
       error => {
         console.log("Error", error);
-        alert("ผิดพลาด อาจเกิดจากไม่มีชื่อยาหรือเบอร์โทรศัพท์ลูกค้า " + error)
+        alert("ผิดพลาด " + error)
       });
   }
-  
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.get("http://localhost:8080/message").subscribe(
+      data => {
+        console.log("GET Request is successful ", data);
+        for (let index = 0; index < data["length"]; index++) {
+          this.message.push({
+            value: data[index].message,
+            viewValue: data[index].message
+          })
+        }
+      },
+      error => {
+        console.log("Error", error);
+      }
+    );
+  }
 }
 
 

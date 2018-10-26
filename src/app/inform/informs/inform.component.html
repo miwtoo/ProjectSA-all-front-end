@@ -1,28 +1,33 @@
-<app-nav title="แจ้งเตือนทานยา"></app-nav>
+<app-nav title="เพิ่มการแจ้งเตือน"></app-nav>
 
-<mat-card class="example-card">
-  <div class="flex-container">
+    <mat-card class="example-card">
+        <form #inform="ngForm" (ngSubmit)="onClickSubmit(inform.value)">
+          <mat-form-field>
+            Tel Customer : <input matInput name="customer" [(ngModel)]="inform.tell">
+          </mat-form-field><br>
+          <mat-form-field>
+            Pill : <input matInput name="pill" [(ngModel)]="inform.name_pill">
+          </mat-form-field><br>
+          <mat-form-field>
+            Message: <mat-select name ="message" [(ngModel)]="inform.message">
+               <mat-option *ngFor="let message of message" [value]="message.value">
+                 {{message.viewValue}}
+               </mat-option>
+             </mat-select>
+           </mat-form-field><br>
 
-    <form #inform="ngForm" (ngSubmit)="onClickSubmit(inform.value)">
-      <mat-form-field>
-        Tel Customer : <input type="tel" matInput name="customer" [(ngModel)]="inform.tel">
-      </mat-form-field><br>
-      <mat-form-field>
-        Pill : <input type="text" matInput name="pill" [(ngModel)]="inform.name_pill">
-      </mat-form-field><br>
+          
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="date" [(ngModel)]="inform.date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          <br><br>
 
-      <div class="flex-container">
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="date" [(ngModel)]="inform.date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div><br><br>
+          
+            <button type="submit" mat-stroked-button color="primary">SAVE</button>
+         
 
-      <div class="flex-container">
-        <button type="submit" mat-stroked-button color="primary">SAVE</button>
-      </div>
-
-    </form>
-  </div>
-</mat-card>
+        </form>
+      
+    </mat-card>
