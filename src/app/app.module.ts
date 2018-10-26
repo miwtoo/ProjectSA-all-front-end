@@ -45,9 +45,8 @@ import { TestUiComponent } from './test-ui/test-ui.component';
 import { AllComponent } from './all/all.component';
 import { UserService } from './service/user/user.service';
 //Miw
-import { AddItemComponent } from './warehouse/add-item/add-item.component';
+
 import { TakeItemComponent } from './warehouse/take-item/take-item.component';
-import { ItemListComponent } from './warehouse/item-list/item-list.component';
 import { HistoryComponent } from './warehouse/history/history.component';
 //Ouu
 import { HRComponent } from './personnel/hr/hr.component';
@@ -62,6 +61,10 @@ import { InformComponent } from './inform/informs/inform.component';
 import { TableComponent } from './inform/table/table.component';
 import { DatarecComponent } from './medicine/datarec/datarec.component';
 
+
+import { AddItemComponent } from './pill/add-item/add-item.component';
+import { ItemListComponent } from './pill/item-list/item-list.component';
+
 const appRoutes: Routes = [
   {path: "" , component: LoginComponent},
   {path: "login" , component: LoginComponent},
@@ -70,6 +73,7 @@ const appRoutes: Routes = [
 
     { path: "add-item" , component: AddItemComponent },
     { path: "item-list" , component: ItemListComponent },
+    
     { path: "take-item" , component: TakeItemComponent },
     { path: "history" , component: HistoryComponent },
 

@@ -1,0 +1,13 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    margin: 5%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0; 
+}

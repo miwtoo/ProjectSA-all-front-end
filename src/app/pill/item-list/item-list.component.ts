@@ -5,7 +5,6 @@ import {HttpClient } from '@angular/common/http';
 export interface PeriodicElement {
   id: string;
   name: string;
-  type: string;
   price: number;
 }
 
@@ -18,7 +17,7 @@ export interface PeriodicElement {
 export class ItemListComponent implements OnInit {
    
 
-  displayedColumns: string[] = ['id', 'name', 'type', 'price'];
+  displayedColumns: string[] = ['id', 'name', 'price'];
   dataSource = new MatTableDataSource();
 
  
@@ -35,14 +34,13 @@ export class ItemListComponent implements OnInit {
 
     const ELEMENT_DATA: PeriodicElement[] = [];
     
-    this.http.get("http://localhost:8080/item").subscribe(
+    this.http.get("http://localhost:8080/pill").subscribe(
       data => {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           ELEMENT_DATA.push({
             id: data[index].id,
-            name: data[index].itemName,
-            type: data[index].category.name,
+            name: data[index].name,
             price: data[index].price
           })
 

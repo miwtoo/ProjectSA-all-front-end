@@ -1,0 +1,24 @@
+<app-nav title="เพิ่มยา"></app-nav>
+
+
+
+<mat-card class="card flex-container">
+  <mat-toolbar color="theme">
+    <mat-toolbar-row>
+      <span>เพิ่มยา</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+  <form #item="ngForm" (ngSubmit)="onClickSubmit(item.value)">
+    <mat-form-field>
+      ชื่อสินค้า : <input matInput name="name" [(ngModel)]="item.name">
+    </mat-form-field><br>
+
+    <mat-form-field>
+      ราคา : <input matInput name="price" [(ngModel)]="item.price">
+    </mat-form-field><br>
+
+    <button type="submit" mat-stroked-button color="primary">เพิ่ม</button>
+  </form>
+</mat-card>

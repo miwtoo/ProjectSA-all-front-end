@@ -14,9 +14,10 @@ export class AddItemComponent implements OnInit {
   onClickSubmit(body) {
     console.log(body);
 
-    this.http.post("http://localhost:8080/item/" + "/" + body.item_name + "/" + body.price + "/" + body.categorys, "").subscribe(
+    this.http.post("http://localhost:8080/pill", body).subscribe(
       data => {
         console.log("POST Request is successful ", data);
+        alert("สำเร็จ")
       },
       error => {
         console.log("Error", error);
@@ -28,28 +29,6 @@ export class AddItemComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.categorys.push(
-
-    )
-
-    this.http.get("http://localhost:8080/category").subscribe(
-      body => {
-        console.log("GET Request is successful ", body);
-        for (let index = 0; index < body["length"]; index++) {
-          this.categorys.push({
-            value: body[index].id,
-            viewValue: body[index].name
-          })
-
-
-        }
-        //console.log(ELEMENT_DATA);
-      },
-      error => {
-        console.log("Error", error);
-      }
-
-    );
   }
 
 }
