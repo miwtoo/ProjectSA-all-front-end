@@ -13,7 +13,7 @@
       </mat-form-field><br>
 
       <mat-form-field  >
-        วันเกิด : <input matInput [(ngModel)]="person_birthday" type="text" [ngModelOptions]="{standalone: true}"  >
+        วันเกิด : <input matInput [(ngModel)]="person_birthday" type="date" [ngModelOptions]="{standalone: true}"  >
       </mat-form-field><br>
 
       <mat-form-field>
@@ -27,6 +27,18 @@
 
         เลขที่ประกันสังคม : <input matInput [(ngModel)]="person_ssid" type="text" [ngModelOptions]="{standalone: true}" >
       </mat-form-field><br>
+
+      <mat-form-field>
+
+        User name : <input matInput matInput [(ngModel)]="person_username" type="text" [ngModelOptions]="{standalone: true}">
+      </mat-form-field><br>
+
+      <mat-form-field>
+
+        Pass ward : <input matInput matInput [(ngModel)]="person_passward" type="text" [ngModelOptions]="{standalone: true}">
+      </mat-form-field><br>
+
+
       <mat-form-field >
         ผู้ยืนยัน<input matInput>
       </mat-form-field><br><br>
@@ -71,6 +83,17 @@
 
         เลขที่ประกันสังคม : <input matInput matInput [(ngModel)]="person_ssid" type="text" [ngModelOptions]="{standalone: true}">
       </mat-form-field><br>
+
+
+
+      <mat-form-field>
+
+        Pass ward : <input matInput matInput [(ngModel)]="person_passward" type="text" [ngModelOptions]="{standalone: true}">
+      </mat-form-field><br>
+
+
+
+
       <mat-form-field >
         ผู้ยืนยัน<input matInput>
       </mat-form-field><br><br>

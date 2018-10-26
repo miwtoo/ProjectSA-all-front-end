@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 @Injectable()
@@ -16,15 +16,19 @@ export class ManageComponent implements OnInit {
   private person_id: number;
   private person_name: string;
   private person_address: string;
-  private person_birthday: string;
+  private person_birthday: Date;
   private person_phone: string;
   private person_email: string;
   private person_ssid: string;
+  private person_username: string;
+  private person_passward: string;
   constructor(
     private httpClient: HttpClient) { }
 
   Addp() {
-    this.Addperson(this.person_name, this.person_address, this.person_birthday, this.person_phone, this.person_email, this.person_ssid).subscribe(data => {
+
+    this.Addperson(this.person_name, this.person_address, this.person_birthday, this.person_phone, this.person_email, this.person_ssid , this.person_username , this.person_passward ).subscribe
+    (data => {
       console.log("POST Success", data);
       alert('เพิ่มเรียบร้อย');
 
@@ -32,9 +36,12 @@ export class ManageComponent implements OnInit {
       console.log("Fail Success", error);
       alert('ไม่สามารถแก้ไขได้ server ผิดพลาดหรือไม่มีข้อมูล');
     })
+
+    //this.Adduser(this.person_name ,this.person_username ,this.person_passward).sub
+
   }
 
-  Delp() {
+  Delp(){
 
     this.httpClient.delete('http://localhost:8080/persons/delete/' + this.person_id)
       .subscribe(
@@ -75,6 +82,8 @@ export class ManageComponent implements OnInit {
 
 
 
+
+
   ngOnInit() {
 
 
@@ -98,8 +107,8 @@ export class ManageComponent implements OnInit {
     }
   }
 
-  public Addperson(person_name: string, person_address: string, person_birthday: string,
-    person_phone: string, person_email: string, person_ssid: string): Observable<any> {
+  public Addperson(person_name: string, person_address: string, person_birthday: Date,
+    person_phone: string, person_email: string, person_ssid: string , person_username: string , person_passward: string): Observable<any> {
     return this.httpClient.post('//localhost:8080/persons', {
 
       "name": person_name,
@@ -107,11 +116,13 @@ export class ManageComponent implements OnInit {
       "addrees": person_address,
       "email": person_email,
       "ssid": person_ssid,
-      "birthday": person_birthday
+      "birthday": person_birthday,
+      "password": person_passward,
+      "username": person_username
 
     });
   }
-  public UpdateInfo(person_id: number, person_name: string, person_address: string, person_birthday: string,
+  public UpdateInfo(person_id: number, person_name: string, person_address: string, person_birthday: Date,
     person_phone: string, person_email: string, person_ssid: string): Observable<any> {
     return this.httpClient.put('//localhost:8080/persons/update', {
 
