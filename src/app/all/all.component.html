@@ -33,7 +33,11 @@
 
     <button mat-menu-item routerLink="./medicine">จัดเก็บข้อมูลยา</button>
     
-    <button mat-menu-item>ระบบที่ 6</button>
+    <button mat-menu-item [matMenuTriggerFor]="salenote">บันทึกการขาย</button>
+    <mat-menu #salenote="matMenu">
+      <button mat-menu-item routerLink="./add-order">สร้างใบเสร็จ</button>
+      <button mat-menu-item routerLink="./history-sale">ตารางใบเส็จ</button>
+    </mat-menu>
     
   </mat-sidenav>
   <mat-sidenav-content>

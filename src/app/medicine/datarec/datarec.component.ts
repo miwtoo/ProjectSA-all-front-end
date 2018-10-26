@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-datarec',
@@ -10,46 +11,55 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class DatarecComponent implements OnInit {
   types = [];
   medicines = [];
-  
+  medicineName = '';
+
+  constructor(private http: HttpClient, private user:UserService) { }
   onClickSubmit(data) {
 
-      data.user = 1;
-      
-      console.log(data);
-      this.http.post("http://localhost:8080/MedicineData/addMedicineData",data).subscribe(
+    data.user = this.user.getUserId();
+
+    console.log(data);
+    this.http.post("http://localhost:8080/MedicineData/addMedicineData", data).subscribe(
       data => {
         console.log("POST Request is successful ", data);
-        alert("สำเร็จ")
+        alert("บันทึกสำเร็จ")
       },
       error => {
         console.log("Error", error);
-        alert("ผิดพลาด " + error)
-      }
+        alert("บันทึกข้อมูลผิดพลาด" + error)
+      });
+  }
 
-    );
-}constructor(private http: HttpClient) { }
+  AddMedicine(data) {
+    this.http.post("http://localhost:8080/Medicine/addMedicine/" + data.medicineName, "").subscribe(data => {
+      console.log("POST Request is successful", data);
+      alert('เพิ่มเรียบร้อย');
+    }, error => {
+      console.log("Fail Success", error);
+      alert('ไม่สามารถเพิ่มได้');
+    });
+  }
 
   ngOnInit() {
-    this.http.get("http://localhost:8080/TypePill").subscribe(
+    this.http.get("http://localhost:8080/Type").subscribe(
       data => {
-        //console.log("GET Request is successful ", data);
+        console.log("GET Request is successful Type", data);
         for (let index = 0; index < data["length"]; index++) {
           this.types.push({
-            value: data[index].id,
-            viewValue: data[index].type
+            value: data[index].typeId,
+            viewValue: data[index].typeName
           })
         }
         console.log(data);
-        
       },
       error => {
         console.log("Error", error);
       }
-  );
+    );
 
-  this.http.get("http://localhost:8080/Medicine").subscribe(
+    this.http.get("http://localhost:8080/Medicine").subscribe(
       data => {
-        console.log("GET Request is successful ", data);
+        console.log("GET Request is successful Medicine", data);
         for (let index = 0; index < data["length"]; index++) {
           this.medicines.push({
             value: data[index].id,
@@ -60,6 +70,6 @@ export class DatarecComponent implements OnInit {
       error => {
         console.log("Error", error);
       }
-  );
+    );
   }
 }

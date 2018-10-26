@@ -65,6 +65,9 @@ import { DatarecComponent } from './medicine/datarec/datarec.component';
 import { AddItemComponent } from './pill/add-item/add-item.component';
 import { ItemListComponent } from './pill/item-list/item-list.component';
 
+import { HistorySaleComponent } from './salenote/history-sale/history-sale.component';
+import { AddOrderComponent } from './salenote/add-order/add-order.component';
+
 const appRoutes: Routes = [
   {path: "" , component: LoginComponent},
   {path: "login" , component: LoginComponent},
@@ -87,7 +90,10 @@ const appRoutes: Routes = [
     { path: 'inform', component: InformComponent },
     { path: 'table', component: TableComponent },
 
-    { path: 'medicine', component: DatarecComponent }
+    { path: 'medicine', component: DatarecComponent },
+
+    { path: 'add-order', component: AddOrderComponent },
+    { path: 'history-sale', component: HistorySaleComponent },
   ]}
 ];
 
@@ -109,7 +115,9 @@ const appRoutes: Routes = [
     CustomerComponent,
     InformComponent,
     TableComponent,
-    DatarecComponent
+    DatarecComponent,
+    AddOrderComponent,
+    HistorySaleComponent
   ],
   imports: [
     BrowserModule,
