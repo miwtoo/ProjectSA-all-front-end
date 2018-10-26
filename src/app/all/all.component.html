@@ -1,6 +1,7 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="over">
     <p>เมนู</p>
+    <button mat-menu-item routerLink="./test">หน้าแรก</button>
     <button mat-menu-item [matMenuTriggerFor]="pill">จัดการยา</button>
     <mat-menu #pill="matMenu">
       <button mat-menu-item routerLink="./add-item">เพิ่มยา</button>
@@ -31,9 +32,9 @@
     </mat-menu>
 
     <button mat-menu-item routerLink="./medicine">จัดเก็บข้อมูลยา</button>
-    <button mat-menu-item>ระบบที่ 5</button>
+    
     <button mat-menu-item>ระบบที่ 6</button>
-    <button mat-menu-item routerLink="./test">หน้าทดสอบ</button>
+    
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>

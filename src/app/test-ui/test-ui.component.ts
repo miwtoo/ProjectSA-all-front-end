@@ -7,7 +7,7 @@ import { SidenavService } from '../service/sidenav/sidenav.service';
   styleUrls: ['./test-ui.component.css']
 })
 export class TestUiComponent implements OnInit {
-  title = "Test UI"
+  title = "หน้าแรก"
   constructor() { }
 
   ngOnInit() {

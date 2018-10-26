@@ -24,6 +24,9 @@ export class TakeItemComponent implements OnInit {
 
     console.log(data);
 
+    if(data == null)
+      alert("โปรดป้อนข้อมูล")
+
     this.http.post("http://localhost:8080/history", data).subscribe(
       data => {
         console.log("POST Request is successful ", data);

@@ -19,6 +19,32 @@
       ราคา : <input matInput name="price" [(ngModel)]="item.price">
     </mat-form-field><br>
 
+   <mat-form-field>
+       วิธีใช้: <mat-select name ="used" [(ngModel)]="item.used">
+           <mat-option *ngFor="let used of used" [value]="used.value">
+             {{used.viewValue}}
+           </mat-option>
+         </mat-select>
+       </mat-form-field><br>
+
+
+    <mat-form-field>
+        เวลาทานยา: <mat-select name ="timepill" [(ngModel)]="item.message">
+           <mat-option *ngFor="let timepill of timepill" [value]="timepill.value">
+             {{timepill.viewValue}}
+           </mat-option>
+         </mat-select>
+       </mat-form-field><br>
+
+       <mat-form-field>
+          ประเภท: <mat-select name ="typepill" [(ngModel)]="item.typepill">
+             <mat-option *ngFor="let typepill of typepill" [value]="typepill.value">
+               {{typepill.viewValue}}
+             </mat-option>
+           </mat-select>
+         </mat-form-field><br>
+
+
     <button type="submit" mat-stroked-button color="primary">เพิ่ม</button>
   </form>
 </mat-card>

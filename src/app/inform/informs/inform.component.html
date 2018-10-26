@@ -1,6 +1,6 @@
 <app-nav title="เพิ่มการแจ้งเตือน"></app-nav>
 
-    <mat-card class="example-card">
+    <mat-card class="card flex-container">
         <form #inform="ngForm" (ngSubmit)="onClickSubmit(inform.value)">
           <mat-form-field>
             Tel Customer : <input matInput name="customer" [(ngModel)]="inform.tell">
