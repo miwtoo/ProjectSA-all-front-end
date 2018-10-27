@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   user = JSON.parse(localStorage.getItem("user"));
-
+  
   public getUser() :Object{
     return this.user;
   }
@@ -15,6 +15,7 @@ export class UserService {
   }
 
   public getUserName() : String{
+    console.log(this.user)
     return this.user.name;
   }
 }

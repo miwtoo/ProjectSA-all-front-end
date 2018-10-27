@@ -11,7 +11,7 @@ import { UserService } from '../service/user/user.service';
 export class NavComponent implements OnInit {
 
   @Input() title = ""
-  name = this.userService.getUserName()
+  user = JSON.parse(localStorage.getItem("user"));
   
 
   logout(){

@@ -6,7 +6,7 @@
     <span class="example-spacer"></span>
     <h1>{{title}}</h1>
     <span class="example-spacer"></span>
-    <button mat-button [matMenuTriggerFor]="menu">{{name}}</button>
+    <button mat-button [matMenuTriggerFor]="menu">{{user.name}}</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="logout()">ออกจากระบบ</button>
     </mat-menu>
